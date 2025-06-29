@@ -1,0 +1,59 @@
+{
+  "name": "backupbee",
+  "displayName": "BackupBee",
+  "publisher": "UdayKiranPamu",
+  "description": "Automatically backup edited files with configurable root directory and cleanup.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  
+  "activationEvents": [
+    "onCommand:backup.toggle",
+    "onCommand:backup.setDirectory",
+    "onCommand:backup.finalize",
+    "onDidSaveTextDocument"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "backup.toggle",
+        "title": "BackupBee: Toggle Backup On/Off"
+      },
+      {
+        "command": "backup.setDirectory",
+        "title": "BackupBee: Select Backup Root Directory"
+      },
+      {
+        "command": "backup.finalize",
+        "title": "BackupBee: Finalize and Clean"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "watch": "webpack --watch",
+    "build": "webpack --mode production",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.70.0",
+    "mocha": "^11.7.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/Imudaypamu/backupbee2.git"
+}
+
+}
