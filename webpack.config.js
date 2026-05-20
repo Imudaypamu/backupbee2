@@ -1,12 +1,11 @@
-//@ts-check
 'use strict';
 
 const path = require('path');
 
 /** @type {import('webpack').Configuration} */
-const config = {
+const extensionConfig = {
   target: 'node',
-  mode: 'production',
+  mode: 'none',
   entry: './src/extension.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,12 +22,13 @@ const config = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [{ loader: 'ts-loader' }]
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: 'nosources-source-map',
+  infrastructureLogging: { level: 'log' }
 };
 
-module.exports = config;
+module.exports = [extensionConfig];
